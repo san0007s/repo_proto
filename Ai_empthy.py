@@ -9,7 +9,7 @@ from langchain.embeddings.huggingface import HuggingFaceInstructEmbeddings
 from langchain_groq import ChatGroq
 import os
 # Load environment variables (e.g., API keys for OpenAI)
-
+load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def get_vectorstore(user_data):
@@ -74,7 +74,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    load_dotenv()
+    
     st.set_page_config(page_title="Chat with AI empathy: Your Personal AI Coach",
                        page_icon="🤗")
     st.write(css, unsafe_allow_html=True)
