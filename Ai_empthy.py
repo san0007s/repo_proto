@@ -15,7 +15,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 def get_vectorstore(user_data):
     """Generate FAISS vectorstore with HuggingFace embeddings."""
     serialized_texts = [f"{key}: {value}" for key, value in user_data.items()]
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    embeddings = HuggingFaceInstructEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = FAISS.from_texts(texts=serialized_texts, embedding=embeddings)
     return vectorstore
 
